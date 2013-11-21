@@ -299,6 +299,41 @@ body{
 		}
 	}
 
+	& h3.profiletitle{
+		& .face{
+			position:absolute;
+			top:0px;
+			left:50%;
+			margin-left:-60px;
+			width:120px;
+			height:120px;
+			background:red;
+			border-radius:50%;
+			border:1px solid @shade2;
+			background:url('../img/icon.png');
+			background:rgba(0,0,0,0) url('../img/icon.svg');
+			background-size:120px 120px;
+			background-position:center center;
+			background-repeat:no-repeat;
+			.box-sizing(border-box);
+
+			&:after{
+				content:'.';
+				visibility:hidden;
+			}
+		}
+
+		padding-top:150px;
+		position:relative;
+		text-align:center;
+		margin-top:50px;
+		padding-bottom:10px;
+		.colfax();
+		font-weight:400;
+		font-size:32px;
+		border-bottom:1px solid @shade2;
+	}
+
 	& .widgetbox{
 		width:360px;
 		margin:0 auto;
@@ -322,10 +357,33 @@ body{
 			box-shadow:0px 3px 15px rgba(0,0,0,0.1);
 			padding:0px 20px;
 
+			.proxima();
+
 			& form{
 				& dl{
 					margin:0px;
 					padding:20px 0px;
+
+					& .face{
+						width:120px;
+						height:120px;
+						background:red;
+						margin:0 auto;
+						margin-bottom:20px;
+						border-radius:50%;
+						border:1px solid @shade2;
+						background:url('../img/icon.png');
+						background:rgba(0,0,0,0) url('../img/icon.svg');
+						background-size:120px 120px;
+						background-position:center center;
+						background-repeat:no-repeat;
+						.box-sizing(border-box);
+
+						&:after{
+							content:'.';
+							visibility:hidden;
+						}
+					}
 
 					& input{
 						width:100%;
@@ -347,9 +405,9 @@ body{
 							border:none;
 							color:#FFF;
 							margin:0px 2px;
-							margin-bottom:10px;
-							margin-top:10px;
-							padding:0px 15px;
+							margin-bottom:20px;
+							margin-top:20px;
+							padding:0px 30px;
 							line-height:22px;
 
 							&:active{
@@ -367,8 +425,14 @@ body{
 						border-radius:3px;
 						margin:0px;
 						margin-bottom:10px;
-						margin-top:10px;
+						margin-top:5px;
 						position:relative;
+						.proxima();
+
+						&:before{
+							content:'Error: ';
+							font-weight:bold;
+						}
 
 						&:after{
 							position:absolute;
@@ -380,7 +444,54 @@ body{
 							border-right:5px solid transparent;
 							content:'';
 						}
+
+						& li{
+							display:inline;
+
+							&:after{
+								content:'. ';
+								display:inline;
+							}
+						}
 					}
+				}
+			}
+		}
+
+		&.profile{
+			margin:40px auto;
+
+			& .widgetbody{
+				margin-bottom:40px;
+
+				& textarea{
+					margin-top:20px;
+					margin-bottom:20px;
+					min-height:160px;
+					width:100%;
+					min-width:100%;
+					max-width:100%;
+					border:1px solid @shade2;
+					border-radius:3px;
+
+					.box-sizing(border-box);
+
+					padding:10px;
+				}
+
+				& p{
+					margin:20px 0px;
+					font-size:16px;
+					line-height:24px;
+				}
+
+				& pre{
+					margin:20px 0px;
+					background:#333;
+					border:none;
+					color:#FFF;
+					text-align:left;
+					padding:10px;
 				}
 			}
 		}

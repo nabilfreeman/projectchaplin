@@ -265,6 +265,40 @@ body #contentwrapper footer {
   font-size: 13px;
   margin-top: 20px;
 }
+body h3.profiletitle {
+  padding-top: 150px;
+  position: relative;
+  text-align: center;
+  margin-top: 50px;
+  padding-bottom: 10px;
+  font-family: 'Colfax', 'Helvetica', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 32px;
+  border-bottom: 1px solid #dedede;
+}
+body h3.profiletitle .face {
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  margin-left: -60px;
+  width: 120px;
+  height: 120px;
+  background: red;
+  border-radius: 50%;
+  border: 1px solid #dedede;
+  background: url('../img/icon.png');
+  background: rgba(0, 0, 0, 0) url('../img/icon.svg');
+  background-size: 120px 120px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body h3.profiletitle .face:after {
+  content: '.';
+  visibility: hidden;
+}
 body .widgetbox {
   width: 360px;
   margin: 0 auto;
@@ -286,10 +320,32 @@ body .widgetbox .widgetbody {
   text-align: center;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
   padding: 0px 20px;
+  font-family: 'Proxima Nova', 'Helvetica', Arial, sans-serif;
 }
 body .widgetbox .widgetbody form dl {
   margin: 0px;
   padding: 20px 0px;
+}
+body .widgetbox .widgetbody form dl .face {
+  width: 120px;
+  height: 120px;
+  background: red;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  border: 1px solid #dedede;
+  background: url('../img/icon.png');
+  background: rgba(0, 0, 0, 0) url('../img/icon.svg');
+  background-size: 120px 120px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body .widgetbox .widgetbody form dl .face:after {
+  content: '.';
+  visibility: hidden;
 }
 body .widgetbox .widgetbody form dl input {
   width: 100%;
@@ -311,9 +367,9 @@ body .widgetbox .widgetbody form dl input[type=submit] {
   border: none;
   color: #FFF;
   margin: 0px 2px;
-  margin-bottom: 10px;
-  margin-top: 10px;
-  padding: 0px 15px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  padding: 0px 30px;
   line-height: 22px;
 }
 body .widgetbox .widgetbody form dl input[type=submit]:active {
@@ -328,8 +384,13 @@ body .widgetbox .widgetbody form dl .errors {
   border-radius: 3px;
   margin: 0px;
   margin-bottom: 10px;
-  margin-top: 10px;
+  margin-top: 5px;
   position: relative;
+  font-family: 'Proxima Nova', 'Helvetica', Arial, sans-serif;
+}
+body .widgetbox .widgetbody form dl .errors:before {
+  content: 'Error: ';
+  font-weight: bold;
 }
 body .widgetbox .widgetbody form dl .errors:after {
   position: absolute;
@@ -340,4 +401,44 @@ body .widgetbox .widgetbody form dl .errors:after {
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
   content: '';
+}
+body .widgetbox .widgetbody form dl .errors li {
+  display: inline;
+}
+body .widgetbox .widgetbody form dl .errors li:after {
+  content: '. ';
+  display: inline;
+}
+body .widgetbox.profile {
+  margin: 40px auto;
+}
+body .widgetbox.profile .widgetbody {
+  margin-bottom: 40px;
+}
+body .widgetbox.profile .widgetbody textarea {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  min-height: 160px;
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  border: 1px solid #dedede;
+  border-radius: 3px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px;
+}
+body .widgetbox.profile .widgetbody p {
+  margin: 20px 0px;
+  font-size: 16px;
+  line-height: 24px;
+}
+body .widgetbox.profile .widgetbody pre {
+  margin: 20px 0px;
+  background: #333;
+  border: none;
+  color: #FFF;
+  text-align: left;
+  padding: 10px;
 }
