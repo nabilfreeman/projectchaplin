@@ -1,3 +1,27 @@
+/**
+ * This file is part of Project Chaplin.
+ *
+ * Project Chaplin is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Project Chaplin is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with Project Chaplin. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * @package    Project Chaplin
+ * @author     Nabil Freeman
+ * @copyright  2012-2013 Project Chaplin
+ * @license    http://www.gnu.org/licenses/agpl-3.0.html GNU AGPL 3.0
+ * @version    git
+ * @link       https://github.com/dandart/projectchaplin
+**/
+
 @import "globals.less";
 @import "lesshat.less";
 
@@ -7,10 +31,15 @@
 
 body{
 	background:@shade0;
+	margin:0px;padding:0px;
 
 	& #contentwrapper{
-		position:relative;
+		padding:0px 10px;
 		padding-top:60px;
+
+		max-width:1024px;
+		margin:0 auto;
+		.box-sizing(border-box);
 
 		& header{
 			width:100%;
@@ -22,33 +51,35 @@ body{
 			color:#000;
 			box-shadow:0px 0px 5px rgba(0,0,0,0.1);
 			border-bottom:1px solid @shade2;
+			z-index:99999;
 
 			& .wrap{
 				margin:0 auto;
 				height:100%;
-				width:1004px;
+				max-width:1024px;
 				.box-sizing(border-box);
 				position:relative;
-				padding-left:190px;
+				// padding-left:190px;
+				padding:0px 10px;
 
 				& .logo{
 					font-weight:400;
 					height:60px;
-					position:absolute;
+					position:relative;
 					top:-2px;
-					left:0px;
-					width:190px;
 					.box-sizing(border-box);
 					line-height:68px;
 					font-size:32px;
-					padding-left:54px;
+					padding-left:42px;
 					background:url('../img/logo.png');
 					background:rgba(0,0,0,0) url('../img/logo.svg');
-					background-size:60px 60px;
+					background-size:auto 60px;
 					background-position:left center;
 					background-repeat:no-repeat;
 					.colfax();
 					color:#000;
+					float:left;
+					margin-right:20px;
 				}
 
 				& .search{
@@ -67,8 +98,8 @@ body{
 						border-bottom-left-radius:3px;
 						.box-sizing(border-box);
 						padding:10px 0px;
-						padding-left:5px;
-						font-size:18px;
+						padding-left:8px;
+						font-size:16px;
 						line-height:20px;
 						.proxima();
 						outline:none;
@@ -84,8 +115,7 @@ body{
 						height:40px;
 						background:url('../img/search.png');
 						background:rgba(0,0,0,0) url('../img/search.svg');
-						background-color:@shade2;
-						background-color:rgb(39,67,89);
+						background-color:@blue;
 						border-top-right-radius: 3px;
 						border-bottom-right-radius: 3px;
 						border:none;
@@ -94,14 +124,14 @@ body{
 						background-size:30px 30px;
 
 						&:active{
-							box-shadow:inset 0px 0px 5px rgba(0,0,0,0.4);
+							box-shadow:inset 0px 3px 5px rgba(0,0,0,0.4);
 						}
 					}
 				}
 
 				& .right{
 					float:right;
-					margin-left:10px;
+					margin-left:20px;
 					.proxima();
 
 					& .button{
@@ -116,30 +146,240 @@ body{
 						text-decoration:none;
 
 						&:active{
-							box-shadow:inset 0px 0px 5px rgba(0,0,0,0.4);
+							box-shadow:inset 0px 3px 5px rgba(0,0,0,0.4);
 						}
 
 						&.upload{
-							background:rgb(39,67,89);
+							background:@blue;
 							border-top-left-radius: 3px;
 							border-bottom-left-radius: 3px;
 						}
 
 						&.broadcast{
-							background:rgb(60,102,115);
+							background:@red;
 							border-top-right-radius: 3px;
 							border-bottom-right-radius: 3px;
+
+							&:active{
+								box-shadow:inset 0px 3px 5px rgba(0,0,0,0.2);
+							}
 						}
 					}
 
-					& .username{
+					& .dropdown{
 						margin-left:10px;
-						line-height:42px;
+
+						& .dropdown-toggle{
+							padding:0px;
+							height:40px;
+							.box-sizing(border-box);
+							border:1px solid @shade2;
+							position:relative;
+							margin-top:10px;
+							padding-right:24px;
+							padding-left:10px;
+
+							& .username{
+								line-height:42px;
+								display:inline-block;
+								color:#000;
+								.colfax();
+								font-weight:500;
+
+								&.nobold{
+									// font-weight:400;
+								}
+							}
+
+							& .caret{
+								position:absolute;
+								right:10px;
+								top:50%;
+								margin-top:-1px;
+							}
+
+							&:hover{
+								border:1px solid @shade3;
+							}
+						}
+
+						& .dropdown-menu{
+							top:50px;
+
+							padding:10px 0px;
+							font-weight:500;
+
+							& li{
+								& a{
+									padding:3px 10px;
+									border-top:1px solid transparent;
+									border-bottom:1px solid transparent;
+									color:#000;
+									line-height:22px;
+									& i{
+										display:inline-block;
+										width:20px;
+										height:20px;
+										text-align:center;
+									}
+
+									&:hover{
+										background:#333;
+										border-top:1px solid #222;
+										border-bottom:1px solid #222;
+										color:#FFF;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		& main{
+			overflow:auto;
+
+			& .content-header{
+				.proxima();
+				font-weight:400;
+				font-size:24px;
+				padding:10px 0px;
+				padding-top:30px;
+			}
+
+			& .content-centre{
+				text-align:left;
+				width:100%;
+				width:calc(100% + 10px);
+
+				& .video{
+					display:inline-block;
+					float:left;
+					width:325px;
+					margin-right:10px;
+					padding-bottom:10px;
+
+					&:hover{
+						text-decoration:underline;
+					}
+
+					& .thumb-wrapper{
+						overflow:hidden;
+						width:100%;
+						height:183px;
+						position:relative;
+						margin-bottom:10px;
+
+						& .thumb-img{
+							width:386px;
+							height:290px;
+							position:absolute;
+							top:50%;
+							left:50%;
+							margin-left:-193px;
+							margin-top:-145px;
+						}
+					}
+
+					& p{
+						overflow:hidden;
+						white-space:nowrap;
+						text-overflow:ellipsis;
+					}
+				}
+			}
+		}
+
+		& footer{
+			text-align:center;
+			.proxima();
+			font-size:13px;
+			margin-top:20px;
+		}
+	}
+
+	& .widgetbox{
+		width:360px;
+		margin:0 auto;
+		margin-bottom:80px;
+		margin-top:50px;
+
+		& .widgettitle{
+			text-align:center;
+			.proxima();
+			font-weight:400;
+			font-size:24px;
+			padding:0px;
+			margin-bottom:20px;
+		}
+
+		& .widgetbody{
+			border-radius:3px;
+			border:1px solid @shade2;
+			background:#FBFBFB;
+			text-align:center;
+			box-shadow:0px 3px 15px rgba(0,0,0,0.1);
+			padding:0px 20px;
+
+			& form{
+				& dl{
+					margin:0px;
+					padding:20px 0px;
+
+					& input{
+						width:100%;
+						height:40px;
+						.proxima();
+						margin-bottom:10px;
+						padding:0px 10px;
+						font-size:16px;
+						border-radius:3px;
+						border:1px solid @shade2;
+
+						&[type=submit]{
+							width:auto;
+							.colfax();
+							font-weight:500;
+							font-size:14px;
+							background:@blue;
+							border-radius:3px;
+							border:none;
+							color:#FFF;
+							margin:0px 2px;
+							margin-bottom:10px;
+							margin-top:10px;
+							padding:0px 15px;
+							line-height:22px;
+
+							&:active{
+								box-shadow:inset 0px 3px 5px rgba(0,0,0,0.4);
+							}
+						}
+					}
+
+					& .errors{
+						padding:0px;
+						list-style:none;
+						background:#333;
+						color:#FFF;
+						padding:5px;
+						border-radius:3px;
+						margin:0px;
+						margin-bottom:10px;
 						margin-top:10px;
-						display:inline-block;
-						color:#000;
-						.colfax();
-						font-weight:500;
+						position:relative;
+
+						&:after{
+							position:absolute;
+							top:-5px;
+							left:50%;
+							margin-left:-5px;
+							border-bottom:5px solid #333;
+							border-left:5px solid transparent;
+							border-right:5px solid transparent;
+							content:'';
+						}
 					}
 				}
 			}

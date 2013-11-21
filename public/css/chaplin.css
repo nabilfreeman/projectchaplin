@@ -1,12 +1,42 @@
+/**
+ * This file is part of Project Chaplin.
+ *
+ * Project Chaplin is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Project Chaplin is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with Project Chaplin. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * @package    Project Chaplin
+ * @author     Nabil Freeman
+ * @copyright  2012-2013 Project Chaplin
+ * @license    http://www.gnu.org/licenses/agpl-3.0.html GNU AGPL 3.0
+ * @version    git
+ * @link       https://github.com/dandart/projectchaplin
+**/
 * {
   outline: none;
 }
 body {
   background: #ffffff;
+  margin: 0px;
+  padding: 0px;
 }
 body #contentwrapper {
-  position: relative;
+  padding: 0px 10px;
   padding-top: 60px;
+  max-width: 1024px;
+  margin: 0 auto;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 body #contentwrapper header {
   width: 100%;
@@ -18,37 +48,38 @@ body #contentwrapper header {
   color: #000;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid #dedede;
+  z-index: 99999;
 }
 body #contentwrapper header .wrap {
   margin: 0 auto;
   height: 100%;
-  width: 1004px;
+  max-width: 1024px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   position: relative;
-  padding-left: 190px;
+  padding: 0px 10px;
 }
 body #contentwrapper header .wrap .logo {
   font-weight: 400;
   height: 60px;
-  position: absolute;
+  position: relative;
   top: -2px;
-  left: 0px;
-  width: 190px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   line-height: 68px;
   font-size: 32px;
-  padding-left: 54px;
+  padding-left: 42px;
   background: url('../img/logo.png');
   background: rgba(0, 0, 0, 0) url('../img/logo.svg');
-  background-size: 60px 60px;
+  background-size: auto 60px;
   background-position: left center;
   background-repeat: no-repeat;
   font-family: 'Colfax', 'Helvetica', Arial, sans-serif;
   color: #000;
+  float: left;
+  margin-right: 20px;
 }
 body #contentwrapper header .wrap .search {
   padding-right: 40px;
@@ -68,8 +99,8 @@ body #contentwrapper header .wrap .search input {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   padding: 10px 0px;
-  padding-left: 5px;
-  font-size: 18px;
+  padding-left: 8px;
+  font-size: 16px;
   line-height: 20px;
   font-family: 'Proxima Nova', 'Helvetica', Arial, sans-serif;
   outline: none;
@@ -84,8 +115,7 @@ body #contentwrapper header .wrap .search button {
   height: 40px;
   background: url('../img/search.png');
   background: rgba(0, 0, 0, 0) url('../img/search.svg');
-  background-color: #dedede;
-  background-color: #274359;
+  background-color: #17607d;
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
   border: none;
@@ -94,11 +124,11 @@ body #contentwrapper header .wrap .search button {
   background-size: 30px 30px;
 }
 body #contentwrapper header .wrap .search button:active {
-  box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0px 3px 5px rgba(0, 0, 0, 0.4);
 }
 body #contentwrapper header .wrap .right {
   float: right;
-  margin-left: 10px;
+  margin-left: 20px;
   font-family: 'Proxima Nova', 'Helvetica', Arial, sans-serif;
 }
 body #contentwrapper header .wrap .right .button {
@@ -113,24 +143,201 @@ body #contentwrapper header .wrap .right .button {
   text-decoration: none;
 }
 body #contentwrapper header .wrap .right .button:active {
-  box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0px 3px 5px rgba(0, 0, 0, 0.4);
 }
 body #contentwrapper header .wrap .right .button.upload {
-  background: #274359;
+  background: #17607d;
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
 }
 body #contentwrapper header .wrap .right .button.broadcast {
-  background: #3c6673;
+  background: #fc4349;
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
 }
-body #contentwrapper header .wrap .right .username {
+body #contentwrapper header .wrap .right .button.broadcast:active {
+  box-shadow: inset 0px 3px 5px rgba(0, 0, 0, 0.2);
+}
+body #contentwrapper header .wrap .right .dropdown {
   margin-left: 10px;
-  line-height: 42px;
+}
+body #contentwrapper header .wrap .right .dropdown .dropdown-toggle {
+  padding: 0px;
+  height: 40px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 1px solid #dedede;
+  position: relative;
   margin-top: 10px;
+  padding-right: 24px;
+  padding-left: 10px;
+}
+body #contentwrapper header .wrap .right .dropdown .dropdown-toggle .username {
+  line-height: 42px;
   display: inline-block;
   color: #000;
   font-family: 'Colfax', 'Helvetica', Arial, sans-serif;
   font-weight: 500;
+}
+body #contentwrapper header .wrap .right .dropdown .dropdown-toggle .caret {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  margin-top: -1px;
+}
+body #contentwrapper header .wrap .right .dropdown .dropdown-toggle:hover {
+  border: 1px solid #cdcdcd;
+}
+body #contentwrapper header .wrap .right .dropdown .dropdown-menu {
+  top: 50px;
+  padding: 10px 0px;
+  font-weight: 500;
+}
+body #contentwrapper header .wrap .right .dropdown .dropdown-menu li a {
+  padding: 3px 10px;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  color: #000;
+  line-height: 22px;
+}
+body #contentwrapper header .wrap .right .dropdown .dropdown-menu li a i {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+}
+body #contentwrapper header .wrap .right .dropdown .dropdown-menu li a:hover {
+  background: #333;
+  border-top: 1px solid #222;
+  border-bottom: 1px solid #222;
+  color: #FFF;
+}
+body #contentwrapper main {
+  overflow: auto;
+}
+body #contentwrapper main .content-header {
+  font-family: 'Proxima Nova', 'Helvetica', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  padding: 10px 0px;
+  padding-top: 30px;
+}
+body #contentwrapper main .content-centre {
+  text-align: left;
+  width: 100%;
+  width: calc(110%);
+}
+body #contentwrapper main .content-centre .video {
+  display: inline-block;
+  float: left;
+  width: 325px;
+  margin-right: 10px;
+  padding-bottom: 10px;
+}
+body #contentwrapper main .content-centre .video:hover {
+  text-decoration: underline;
+}
+body #contentwrapper main .content-centre .video .thumb-wrapper {
+  overflow: hidden;
+  width: 100%;
+  height: 183px;
+  position: relative;
+  margin-bottom: 10px;
+}
+body #contentwrapper main .content-centre .video .thumb-wrapper .thumb-img {
+  width: 386px;
+  height: 290px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -193px;
+  margin-top: -145px;
+}
+body #contentwrapper main .content-centre .video p {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+body #contentwrapper footer {
+  text-align: center;
+  font-family: 'Proxima Nova', 'Helvetica', Arial, sans-serif;
+  font-size: 13px;
+  margin-top: 20px;
+}
+body .widgetbox {
+  width: 360px;
+  margin: 0 auto;
+  margin-bottom: 80px;
+  margin-top: 50px;
+}
+body .widgetbox .widgettitle {
+  text-align: center;
+  font-family: 'Proxima Nova', 'Helvetica', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  padding: 0px;
+  margin-bottom: 20px;
+}
+body .widgetbox .widgetbody {
+  border-radius: 3px;
+  border: 1px solid #dedede;
+  background: #FBFBFB;
+  text-align: center;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
+  padding: 0px 20px;
+}
+body .widgetbox .widgetbody form dl {
+  margin: 0px;
+  padding: 20px 0px;
+}
+body .widgetbox .widgetbody form dl input {
+  width: 100%;
+  height: 40px;
+  font-family: 'Proxima Nova', 'Helvetica', Arial, sans-serif;
+  margin-bottom: 10px;
+  padding: 0px 10px;
+  font-size: 16px;
+  border-radius: 3px;
+  border: 1px solid #dedede;
+}
+body .widgetbox .widgetbody form dl input[type=submit] {
+  width: auto;
+  font-family: 'Colfax', 'Helvetica', Arial, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  background: #17607d;
+  border-radius: 3px;
+  border: none;
+  color: #FFF;
+  margin: 0px 2px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding: 0px 15px;
+  line-height: 22px;
+}
+body .widgetbox .widgetbody form dl input[type=submit]:active {
+  box-shadow: inset 0px 3px 5px rgba(0, 0, 0, 0.4);
+}
+body .widgetbox .widgetbody form dl .errors {
+  padding: 0px;
+  list-style: none;
+  background: #333;
+  color: #FFF;
+  padding: 5px;
+  border-radius: 3px;
+  margin: 0px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  position: relative;
+}
+body .widgetbox .widgetbody form dl .errors:after {
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  margin-left: -5px;
+  border-bottom: 5px solid #333;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  content: '';
 }
